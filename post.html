@@ -1,1 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Đăng bài</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h1>✍️ Gửi bài chờ duyệt</h1></header>
+
+<div class="container">
+<form action="https://formsubmit.co/EMAIL_CỦA_BẠN" method="POST">
+<input name="username" placeholder="Tên người dùng" required>
+<input name="title" placeholder="Tiêu đề bài viết" required>
+<textarea name="content" placeholder="Nội dung bài viết" required></textarea>
+
+<input type="hidden" name="_subject" value="Bài viết mới cần duyệt">
+<button type="submit">Gửi bài</button>
+</form>
+</div>
+
+</body>
+</html>
 

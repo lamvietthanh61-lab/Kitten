@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang đăng bài cộng đồng</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>📢 Bài đăng cộng đồng</h1>
+
+<div class="post">
+    <h3>Admin</h3>
+    <p>Chào mừng bạn đến với trang web. Mọi bài viết đều phải được kiểm duyệt.</p>
+</div>
+
+<hr>
+
+<h2>✍️ Gửi bài viết</h2>
+
+<form action="https://formsubmit.co/lamvietthanh@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Tên của bạn" required>
+    <textarea name="content" placeholder="Nội dung bài viết" required></textarea>
+
+    <!-- chống spam -->
+    <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit">Gửi bài để kiểm duyệt</button>
+</form>
+
+<p class="note">
+    📌 Bài viết sẽ được admin duyệt trước khi đăng.
+</p>
+
+</body>
+</html>

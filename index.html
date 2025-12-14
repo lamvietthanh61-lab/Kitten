@@ -18,15 +18,19 @@
 
 <h2>✍️ Gửi bài viết</h2>
 
-<form action="https://formsubmit.co/lamvietthanh61@gmail.com" method="POST">
-    <input type="text" name="name" placeholder="Tên của bạn" required>
+<form action="https://formsubmit.co/EMAIL_CỦA_BẠN" method="POST">
+
+    <input type="text" name="username" placeholder="Tên người dùng" required>
+
+    <input type="text" name="title" placeholder="Tiêu đề bài viết" required>
+
     <textarea name="content" placeholder="Nội dung bài viết" required></textarea>
 
-    <!-- chống spam -->
-    <input type="hidden" name="_captcha" value="false">
+    <button type="submit">Gửi bài chờ duyệt</button>
 
-    <button type="submit">Gửi bài để kiểm duyệt</button>
 </form>
+    
+
 
 <p class="note">
     📌 Bài viết sẽ được admin duyệt trước khi đăng.
@@ -34,4 +38,5 @@
 
 </body>
 </html>
+
 

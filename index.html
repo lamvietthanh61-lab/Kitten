@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<input type="text" id="searchInput" placeholder="🔍 Tìm bài viết theo tiêu đề..." onkeyup="searchPosts()">
+    
 <h1>📢 Bài đăng cộng đồng</h1>
 
 <div class="post">
     <h3>Admin</h3>
     <p>Chào mừng bạn đến với trang web. Mọi bài viết đều phải được kiểm duyệt.</p>
 </div>
-<input type="text" id="searchInput" placeholder="🔍 Tìm bài viết theo tiêu đề..." onkeyup="searchPosts()">
     
 <hr>
 
@@ -36,9 +36,27 @@
 <p class="note">
     📌 Bài viết sẽ được admin duyệt trước khi đăng.
 </p>
+<script>
+function searchPosts() {
+    let input = document.getElementById("searchInput");
+    let filter = input.value.toLowerCase();
+    let posts = document.getElementsByClassName("post");
 
+    for (let i = 0; i < posts.length; i++) {
+        let title = posts[i].getElementsByClassName("post-title")[0];
+
+        if (title.innerText.toLowerCase().includes(filter)) {
+            posts[i].style.display = "";
+        } else {
+            posts[i].style.display = "none";
+        }
+    }
+}
+</script>
+    
 </body>
 </html>
+
 
 
 

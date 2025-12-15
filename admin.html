@@ -14,29 +14,21 @@ if (localStorage.getItem("adminLogin") !== "true") {
 </script>
 
 <header>
-  <h1>🛂 Trang quản trị</h1>
-  <button onclick="logout()">Đăng xuất</button>
-  
- <h1>🛂 Trang quản trị</h1>
+  <h1>🛂 Quản trị bài đăng</h1>
   <a href="index.html" class="back-btn">⬅ Trang chủ</a>
   <button onclick="logout()">Đăng xuất</button>
 </header>
-<div class="container">
-  <a href="index.html" class="back-btn">⬅ Trang chủ</a>
-  ...
-</div>
 
 <div class="container">
-  <p>📌 Cách kiểm duyệt:</p>
-  <ol>
-    <li>Kiểm tra email</li>
-    <li>Copy bài hợp lệ</li>
-    <li>Dán vào <b>index.html</b></li>
-    <li>Commit lên GitHub</li>
-  </ol>
+  <h2>📌 Bài viết chờ duyệt</h2>
+  <div id="pendingList"></div>
 </div>
 
 <script src="script.js"></script>
+<script>
+loadPendingPosts();
+</script>
+
 </body>
 </html>
 

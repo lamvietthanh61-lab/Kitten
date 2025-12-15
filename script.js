@@ -1,36 +1,108 @@
-// ==== TÌM KIẾM ====
+// ===== ADMIN LOGIN (BẠN ĐỔI 2 DÒNG NÀY) =====
+const ADMIN_USER = "adminthanhdz";
+const ADMIN_PASS = "Adminthanh@123"; // >=8 ký tự, có chữ hoa, số, ký tự đặc biệt
+
+// ===== DARK MODE =====
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+
+// ===== TÌM KIẾM =====
 function searchPosts() {
   let key = document.getElementById("searchInput").value.toLowerCase();
   let posts = document.getElementsByClassName("post");
-
   for (let p of posts) {
     p.style.display = p.innerText.toLowerCase().includes(key) ? "" : "none";
   }
 }
 
-// ==== DARK MODE ====
-function toggleMode() {
-  document.body.classList.toggle("dark");
+// ===== GỬI BÀI =====
+function submitPost() {
+  let user = username.value.trim();
+  let title = title.value.trim();
+  let content = content.value.trim();
+
+  if (!user || !title || !content) {
+    alert("Vui lòng nhập đầy đủ");
+    return;
+  }
+
+  let pending = JSON.parse(localStorage.getItem("pendingPosts")) || [];
+  pending.push({
+    user, title, content,
+    time: new Date().toLocaleString()
+  });
+
+  localStorage.setItem("pendingPosts", JSON.stringify(pending));
+  msg.innerText = "✅ Bài đã gửi, chờ admin duyệt";
+
+  username.value = title.value = content.value = "";
 }
 
-// ==== ADMIN LOGIN ====
-const ADMIN_USER = "adminthanhdz";
-const ADMIN_PASS = "Adminthanh@123"; // đổi mật khẩu tại đây
-
+// ===== ADMIN =====
 function login() {
-  let u = document.getElementById("adminUser").value;
-  let p = document.getElementById("adminPass").value;
-
-  if (u === ADMIN_USER && p === ADMIN_PASS) {
+  if (adminUser.value === ADMIN_USER && adminPass.value === ADMIN_PASS) {
     localStorage.setItem("adminLogin", "true");
-    window.location.href = "admin.html";
+    location.href = "admin.html";
   } else {
-    document.getElementById("error").innerText = "❌ Sai tài khoản hoặc mật khẩu";
+    error.innerText = "❌ Sai tài khoản hoặc mật khẩu";
   }
 }
 
 function logout() {
   localStorage.removeItem("adminLogin");
-  window.location.href = "admin-login.html";
+  location.href = "admin-login.html";
+}
+
+function loadPendingPosts() {
+  let list = document.getElementById("pendingList");
+  if (!list) return;
+
+  let pending = JSON.parse(localStorage.getItem("pendingPosts")) || [];
+  list.innerHTML = pending.length ? "" : "<p>Không có bài chờ duyệt</p>";
+
+  pending.forEach((p, i) => {
+    list.innerHTML += `
+      <div class="post">
+        <h3>${p.title}</h3>
+        <p>👤 ${p.user}</p>
+        <p>${p.content}</p>
+        <button onclick="approvePost(${i})">✅ Duyệt</button>
+        <button onclick="deletePost(${i})">❌ Xóa</button>
+      </div>`;
+  });
+}
+
+function approvePost(i) {
+  let pending = JSON.parse(localStorage.getItem("pendingPosts"));
+  let approved = JSON.parse(localStorage.getItem("approvedPosts")) || [];
+  approved.push(pending[i]);
+  pending.splice(i, 1);
+
+  localStorage.setItem("pendingPosts", JSON.stringify(pending));
+  localStorage.setItem("approvedPosts", JSON.stringify(approved));
+  loadPendingPosts();
+}
+
+function deletePost(i) {
+  let pending = JSON.parse(localStorage.getItem("pendingPosts"));
+  pending.splice(i, 1);
+  localStorage.setItem("pendingPosts", JSON.stringify(pending));
+  loadPendingPosts();
+}
+
+function loadApprovedPosts() {
+  let area = document.getElementById("approvedPosts");
+  if (!area) return;
+
+  let posts = JSON.parse(localStorage.getItem("approvedPosts")) || [];
+  posts.forEach(p => {
+    area.innerHTML += `
+      <div class="post">
+        <h2 class="post-title">${p.title}</h2>
+        <p>👤 ${p.user}</p>
+        <p>${p.content}</p>
+      </div>`;
+  });
 }
 

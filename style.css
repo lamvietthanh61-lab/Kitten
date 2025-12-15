@@ -1,6 +1,10 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: Arial;
   background: #f4f6f8;
 }
 
@@ -13,8 +17,8 @@ header {
 
 nav {
   background: #34495e;
-  text-align: center;
   padding: 10px;
+  text-align: center;
 }
 
 nav a {
@@ -35,6 +39,41 @@ input, textarea, button {
   margin: 8px 0;
 }
 
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.post {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.post-title {
+  margin-top: 0;
+}
+
+.error {
+  color: red;
+}
+
+.dark {
+  background: #1e1e1e;
+  color: white;
+}
+
+
+input, textarea, button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+}
+
 .post {
   background: white;
   padding: 15px;
@@ -46,5 +85,6 @@ input, textarea, button {
   background: #1e1e1e;
   color: white;
 }
+
 
 

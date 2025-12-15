@@ -18,14 +18,34 @@ function searchPosts() {
 
 // ===== GỬI BÀI =====
 function submitPost() {
-  let user = username.value.trim();
-  let title = title.value.trim();
-  let content = content.value.trim();
+  let user = document.getElementById("username").value.trim();
+  let postTitle = document.getElementById("postTitle").value.trim();
+  let content = document.getElementById("content").value.trim();
 
-  if (!user || !title || !content) {
-    alert("Vui lòng nhập đầy đủ");
+  if (!user || !postTitle || !content) {
+    alert("Vui lòng nhập đầy đủ thông tin");
     return;
   }
+
+  let pending = JSON.parse(localStorage.getItem("pendingPosts")) || [];
+
+  pending.push({
+    user: user,
+    title: postTitle,
+    content: content,
+    time: new Date().toLocaleString()
+  });
+
+  localStorage.setItem("pendingPosts", JSON.stringify(pending));
+
+  document.getElementById("msg").innerText =
+    "✅ Bài đã gửi, chờ admin duyệt";
+
+  document.getElementById("username").value = "";
+  document.getElementById("postTitle").value = "";
+  document.getElementById("content").value = "";
+}
+
 
   let pending = JSON.parse(localStorage.getItem("pendingPosts")) || [];
   pending.push({

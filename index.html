@@ -16,24 +16,29 @@
 <nav>
   <a href="index.html">Trang chủ</a>
   <a href="post.html">Đăng bài</a>
-  <a href="rules.html">Nội quy</a>
+  <a href="admin-login.html">Admin</a>
 </nav>
 
 <div class="container">
+  <input id="searchInput"
+         placeholder="🔍 Tìm theo tiêu đề, tên hoặc nội dung..."
+         onkeyup="searchPosts()">
 
-<input id="searchInput" placeholder="🔍 Tìm bài viết..." onkeyup="searchPosts()">
-
-<div class="post">
-  <h2 class="post-title">Bài kiểm tra</h2>
-  <p class="post-author">👤 thanh</p>
-  <p class="post-content">Đây là nội dung bài kiểm tra.</p>
-</div>
+  <!-- BÀI VIẾT ĐÃ DUYỆT -->
+  <div class="post">
+    <h2 class="post-title">Bài viết mẫu</h2>
+    <p class="post-author">👤 admin</p>
+    <p class="post-content">
+      Đây là bài viết đầu tiên trên blog.
+    </p>
+  </div>
 
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

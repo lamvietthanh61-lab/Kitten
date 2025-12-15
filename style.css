@@ -6,6 +6,7 @@
 body {
   margin: 0;
   background: #f4f6f8;
+  color: #333;
 }
 
 header {
@@ -58,27 +59,18 @@ button {
   margin-top: 0;
 }
 
+.back-btn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 16px;
+  background: #7f8c8d;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
 .error {
   color: red;
-}
-
-.dark {
-  background: #1e1e1e;
-  color: white;
-}
-
-
-input, textarea, button {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-}
-
-.post {
-  background: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
 }
 
 /* ===== DARK MODE ===== */
@@ -87,59 +79,22 @@ body.dark {
   color: #e0e0e0;
 }
 
-/* Header & nav */
-body.dark header {
+body.dark header,
+body.dark nav {
   background: #1f1f1f;
 }
 
-body.dark nav {
-  background: #2a2a2a;
-}
-
-body.dark nav a {
-  color: #e0e0e0;
-}
-
-/* Container */
-body.dark .container {
-  color: #e0e0e0;
-}
-
-/* Post card */
 body.dark .post {
   background: #1e1e1e;
-  color: #e0e0e0;
 }
 
-/* Tiêu đề bài */
-body.dark .post-title {
-  color: #ffffff;
-}
-
-/* Input, textarea */
 body.dark input,
 body.dark textarea {
   background: #2a2a2a;
-  color: #ffffff;
+  color: white;
   border: 1px solid #444;
 }
 
-/* Placeholder */
-body.dark input::placeholder,
-body.dark textarea::placeholder {
-  color: #aaaaaa;
-}
-
-/* Button */
-body.dark button {
-  background: #3498db;
-  color: white;
-}
-
-/* Back button */
-body.dark .back-btn {
-  background: #555;
-}
 
 
 

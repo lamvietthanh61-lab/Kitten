@@ -85,6 +85,23 @@ input, textarea, button {
   background: #1e1e1e;
   color: white;
 }
+<button class="back-btn" onclick="history.back()">⬅ Quay về</button>
+
+<style>
+.back-btn {
+    padding: 8px 14px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.back-btn:hover {
+    background: #000;
+}
+</style>
+
 
 
 

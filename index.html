@@ -24,20 +24,17 @@
          placeholder="🔍 Tìm theo tiêu đề, tên hoặc nội dung..."
          onkeyup="searchPosts()">
 
-  <!-- BÀI VIẾT ĐÃ DUYỆT -->
-  <div class="post">
-    <h2 class="post-title">Bài viết mẫu</h2>
-    <p class="post-author">👤 admin</p>
-    <p class="post-content">
-      Đây là bài viết đầu tiên trên blog.
-    </p>
-  </div>
-
+  <div id="approvedPosts"></div>
 </div>
 
 <script src="script.js"></script>
+<script>
+loadApprovedPosts();
+</script>
+
 </body>
 </html>
+
 
 
 

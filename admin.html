@@ -2,24 +2,33 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Admin</title>
+<title>Admin Panel</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <script>
 if (localStorage.getItem("adminLogin") !== "true") {
   window.location.href = "admin-login.html";
 }
 </script>
 
-<header><h1>🛂 Trang quản trị</h1></header>
+<header>
+  <h1>🛂 Trang quản trị</h1>
+  <button onclick="logout()">Đăng xuất</button>
+</header>
 
 <div class="container">
-<p>📌 Kiểm tra email → copy bài được duyệt → dán vào index.html</p>
-<p>❌ Không duyệt → bỏ qua</p>
+  <p>📌 Cách kiểm duyệt:</p>
+  <ol>
+    <li>Kiểm tra email</li>
+    <li>Copy bài hợp lệ</li>
+    <li>Dán vào <b>index.html</b></li>
+    <li>Commit lên GitHub</li>
+  </ol>
 </div>
-<button onclick="logout()">Đăng xuất</button>
 
+<script src="script.js"></script>
 </body>
 </html>
 
